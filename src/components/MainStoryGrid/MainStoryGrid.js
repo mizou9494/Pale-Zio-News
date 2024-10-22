@@ -85,27 +85,27 @@ const MainStorySection = styled.section`
     }
     `;
     
-    const SecondaryStorySection = styled.section`
-    grid-area: secondary-stories;
+const SecondaryStorySection = styled.section`
+  grid-area: secondary-stories;
     
-    @media ${QUERIES.laptopAndUp} {
-      margin-right: 16px;
-      padding-right: 16px;
-      border-right: 1px solid var(--color-gray-300);
-    }
+  @media ${QUERIES.laptopAndUp} {
+    margin-right: 16px;
+    padding-right: 16px;
+    border-right: 1px solid var(--color-gray-300);
+  }
     
-    `;
+`;
     
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
 
   a:not(:last-of-type) {
-    margin-bottom: revert;
-    padding-bottom: revert;
-    border-bottom: revert;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-gray-300);
   }
-  `;
+`;
     
 const OpinionStoryList = styled(StoryList)`
   @media ${QUERIES.tabletOnly} {

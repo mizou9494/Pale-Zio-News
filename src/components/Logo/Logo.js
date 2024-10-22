@@ -8,7 +8,7 @@ const Logo = (props) => {
   return (
     <Wrapper>
       <Link href="/" {...props}>
-        New Grid Times
+        New Pales-Zion Times
       </Link>
       <TodaysDate>
         {format(new Date(), 'EEEE, MMMM do, yyyy')}
@@ -25,6 +25,7 @@ const Wrapper = styled.div`
 const Link = styled.a`
   font-family: var(--font-family-logo);
   font-size: 3rem;
+  margin-bottom: 1.5rem;
 
   @media ${QUERIES.tabletAndUp} {
     font-size: 4rem;
