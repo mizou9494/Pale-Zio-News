@@ -17,6 +17,7 @@ const SpecialtyStoryGrid = () => {
   const [translateX, setTranslateX] = React.useState(0);
 
   const movementAmount = 50;
+
   const moveSliderToLeft = () => {
     console.log('moving to the left');
     setTranslateX((prev) => prev - movementAmount);
@@ -27,9 +28,11 @@ const SpecialtyStoryGrid = () => {
   }
 
   if(sportsStoriesRef.current) {
-    sportsStoriesRef.current.style.transform = `translateX(${translateX}px)`;
+    sportsStoriesRef.current.style.transform = `translateX(${translateX}%)`;
     console.log(sportsStoriesRef.current.style);
   }
+  // React.useEffect(() => {
+  // }, translateX)
 
   return (
     <Wrapper>
@@ -57,18 +60,20 @@ const SpecialtyStoryGrid = () => {
         >
           Sports
         </SectionTitle>
-        <SportsStories ref={sportsStoriesRef}>
+        <SportsStories>
           <LeftWrapper onClick={moveSliderToLeft}>
-            <ChevronLeft />
+            <ChevronLeft strokeWidth={5} />
           </LeftWrapper>
           <RightWrapper onClick={moveSliderToRight}>
-            <ChevronRight />
+            <ChevronRight strokeWidth={5} />
           </RightWrapper>
-          {SPORTS_STORIES.map((data) => (
-            <SportStoryWrapper key={data.id}>
-              <MiniStory {...data} />
-            </SportStoryWrapper>
-          ))}
+          <SportSubWrapper ref={sportsStoriesRef}>
+            {SPORTS_STORIES.map((data) => (
+              <SportStoryWrapper key={data.id}>
+                <MiniStory {...data} />
+              </SportStoryWrapper>
+            ))}
+          </SportSubWrapper>
         </SportsStories>
       </SportsSection>
     </Wrapper>
@@ -105,10 +110,16 @@ const MarketCards = styled.div`
 `;
 
 const SportsSection = styled.section`
+  isolate: isolate;
 `;
 
 const SportsStories = styled.div`
+  overflow: hidden;
   position: relative;
+`;
+
+const SportSubWrapper = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
   gap: 16px;
@@ -116,9 +127,8 @@ const SportsStories = styled.div`
   @media ${QUERIES.tabletAndUp} {
     display: flex;
     grid-template-columns: revert;
-    overflow: auto;
+    // overflow: auto;
   }
-
 `;
 
 const SportStoryWrapper = styled.div`
@@ -128,21 +138,30 @@ const SportStoryWrapper = styled.div`
 `;
 
 const LeftWrapper = styled.div`
-  background-color: var(--color-gray-300);
-  border-radius: 50%;
   position: absolute;
-  left: 20px;
-  top: 35%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background-color: hsl(0 0% 50% / 60%);
   cursor: pointer;
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: 35px;
   `;
   
   const RightWrapper = styled.div`
-  background-color: var(--color-gray-300);
-  border-radius: 50%;
   position: absolute;
-  right: 20px;
-  top: 35%;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  background-color: hsl(0 0% 50% / 60%);
   cursor: pointer;
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: 35px;
+
 `;
 
 export default SpecialtyStoryGrid;
