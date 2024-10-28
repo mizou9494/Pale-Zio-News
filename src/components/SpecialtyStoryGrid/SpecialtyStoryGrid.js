@@ -16,7 +16,7 @@ const SpecialtyStoryGrid = () => {
   const sportsStoriesRef = React.useRef();
   const [translateX, setTranslateX] = React.useState(0);
 
-  const movementAmount = 50;
+  const movementAmount = 80;
 
   const moveSliderToLeft = () => {
     console.log('moving to the left');
@@ -142,7 +142,7 @@ const LeftWrapper = styled.div`
   left: 0;
   top: 0;
   z-index: 2;
-  background-color: hsl(0 0% 50% / 60%);
+  background-color: hsl(0 0% 50% / 20%);
   cursor: pointer;
   display: grid;
   place-content: center;
@@ -155,7 +155,7 @@ const LeftWrapper = styled.div`
   right: 0;
   top: 0;
   z-index: 2;
-  background-color: hsl(0 0% 50% / 60%);
+  background-color: hsl(0 0% 50% / 20%);
   cursor: pointer;
   display: grid;
   place-content: center;

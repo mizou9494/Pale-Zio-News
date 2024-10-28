@@ -171,4 +171,37 @@ export const SPORTS_STORIES = [
     },
     title: 'Behind the scenes: coaching a Little League team',
   },
+  {
+    id: 's-a',
+    image: {
+      src: '/images/habs.jpg',
+      alt: 'Montreal Canadiens goalie Carey Price covering his net',
+    },
+    title: 'Montreal Canadiens hope to settle the score in Vegas',
+  },
+  {
+    id: 's-b',
+    image: {
+      src: '/images/bicycles.jpg',
+      alt: 'Lots of men in cute matching outfits riding bicycles',
+    },
+    title: 'In surprise move, the Tour de France moves to Belgium',
+  },
+  {
+    id: 's-c',
+    image: {
+      src: '/images/football.jpg',
+      alt: 'A football player runs with the ball, whilst being chased by another player',
+    },
+    title:
+      'The Texas Giants eke out a victory after a late-game touchdown',
+  },
+  {
+    id: 's-d',
+    image: {
+      src: '/images/decathlon.jpg',
+      alt: 'Women sprinting on a race track',
+    },
+    title: 'The surprising result for this summer decathlon',
+  },
 ];
