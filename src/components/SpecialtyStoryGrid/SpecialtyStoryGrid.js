@@ -20,11 +20,11 @@ const SpecialtyStoryGrid = () => {
 
   const moveSliderToLeft = () => {
     console.log('moving to the left');
-    setTranslateX((prev) => prev - movementAmount);
+    setTranslateX((prev) => prev + movementAmount);
   }
   const moveSliderToRight = () => {
     console.log('moving to the right');
-    setTranslateX((prev) => prev + movementAmount);
+    setTranslateX((prev) => prev - movementAmount);
   }
 
   if(sportsStoriesRef.current) {
@@ -62,10 +62,14 @@ const SpecialtyStoryGrid = () => {
         </SectionTitle>
         <SportsStories>
           <LeftWrapper onClick={moveSliderToLeft}>
-            <ChevronLeft strokeWidth={5} />
+            <ArrowWrapper>
+              <ChevronLeft strokeWidth={5} color='#fff' size={30} />
+            </ArrowWrapper>
           </LeftWrapper>
           <RightWrapper onClick={moveSliderToRight}>
-            <ChevronRight strokeWidth={5} />
+            <ArrowWrapper>
+              <ChevronRight strokeWidth={5} color='#fff' size={30} />
+            </ArrowWrapper>
           </RightWrapper>
           <SportSubWrapper ref={sportsStoriesRef}>
             {SPORTS_STORIES.map((data) => (
@@ -137,25 +141,30 @@ const SportStoryWrapper = styled.div`
   }
 `;
 
-const LeftWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  background-color: hsl(0 0% 50% / 20%);
-  cursor: pointer;
+const ArrowWrapper = styled.div`
+  background-color: hsl(0 0% 10% / 80%);
+  min-height: 50px; 
   display: grid;
   place-content: center;
+`;
+
+const LeftWrapper = styled.div`
+  position: absolute;
+  left: 10px;
+  top: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
   height: 100%;
   width: 35px;
   `;
   
   const RightWrapper = styled.div`
   position: absolute;
-  right: 0;
+  right: 10px;
   top: 0;
   z-index: 2;
-  background-color: hsl(0 0% 50% / 20%);
   cursor: pointer;
   display: grid;
   place-content: center;
